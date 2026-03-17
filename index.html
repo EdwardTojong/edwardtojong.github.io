@@ -307,21 +307,19 @@
                 <h2 class="section-title">Latest articles</h2>
                 
                 <div class="articles-grid">
-                    <!-- Article 1 - Updated title -->
+                    <!-- Article 1 - FIXED: Removed duplicate excerpt and closed properly -->
                     <div class="article-card">
                         <div class="article-date">February 26, 2026</div>
                         <div class="article-title">Why an Inefficient Hiring Process Is Costing You Top Talent</div>
                         <div class="article-excerpt">
-                              Most companies lose great candidates before they even meet them. Here's where the hiring funnel breaks—and how to fix it.
-                        <div class="article-excerpt">
-                            The death of cold calling has been greatly exaggerated. Here's what actually works in 2026...
+                            Most companies lose great candidates before they even meet them. Here's where the hiring funnel breaks—and how to fix it.
                         </div>
                         <a href="https://www.linkedin.com/pulse/why-inefficient-hiring-process-costing-you-top-talent-edward-tojong-b3auc/?trackingId=1%2F8f8zJfFc609bTXzj0EyA%3D%3D" class="read-more" target="_blank" rel="noopener">Read on LinkedIn →</a>
-                        </div>
+                    </div> <!-- This was missing! -->
                     
-                    <!-- Article 2 -->
+                    <!-- Article 2 - Removed "Coming soon" -->
                     <div class="article-card">
-                        <div class="article-date">Coming soon</div>
+                        <div class="article-date"></div>
                         <div class="article-title">Why I Ask "Why" After Every "No"</div>
                         <div class="article-excerpt">
                             The one question that turned cold calls into closed deals...
@@ -329,16 +327,16 @@
                         <a href="#" class="read-more">Read →</a>
                     </div>
                     
-                    <!-- Article 3 -->
+                    <!-- Article 3 - Removed "Coming soon" -->
                     <div class="article-card">
-                        <div class="article-date">Coming soon</div>
+                        <div class="article-date"></div>
                         <div class="article-title">Building a Team That Closes 300+ Clients</div>
                         <div class="article-excerpt">
                             Systems, psychology, and sales rhythms that scale...
                         </div>
                         <a href="#" class="read-more">Read →</a>
                     </div>
-                </div>
+                </div> <!-- This closes articles-grid -->
                 
                 <!-- Brief intro box -->
                 <div style="margin: 3rem 0 2rem 0; padding: 1.5rem; background: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(107,33,165,0.05)); border-radius: 8px; border-left: 4px solid #6b21a5;">
@@ -353,12 +351,12 @@
                     </div>
                     <p style="font-size: 0.8rem; color: #4b5563; margin-top: 0.5rem;">(Form disabled—replace with actual form later)</p>
                 </div>
-            </div>
+            </div> <!-- This closes left-col -->
             
             <!-- Right column - Profile sidebar -->
             <div class="right-col">
                 <div class="profile-card">
-                    <!-- Profile image - you'll need to upload this -->
+                    <!-- Profile image - using your photo-1-1.jpeg -->
                     <img src="photo-1-1.jpeg" alt="Edward Tojong" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                     <div style="display: none; text-align: center; padding: 2rem; background: #f3f4f6; border-radius: 50%; width: 150px; height: 150px; margin: 0 auto 1.5rem; align-items: center; justify-content: center;">
                         <span style="font-size: 3rem;">📸</span>
@@ -389,7 +387,7 @@
                         </li>
                         <li>
                             <span class="bullet-icon">🏆</span>
-                            <span>Top Global <span class="highlight"> Reseller team of a VoIP</span> (2023)</span>
+                            <span>Top Global <span class="highlight">Reseller team of a VoIP</span> (2023)</span>
                         </li>
                     </ul>
                 </div>
@@ -401,11 +399,11 @@
                     <a href="#" style="display: block; text-align: center; padding: 0.75rem; background: linear-gradient(135deg, #2563eb, #6b21a5); color: white; text-decoration: none; border-radius: 8px; font-weight: 500;">Reach out</a>
                 </div>
             </div>
-        </div>
+        </div> <!-- This closes main-grid -->
         
         <footer>
             © 2026 Edward Tojong • Built for GitHub Pages
         </footer>
-    </div>
+    </div> <!-- This closes container -->
 </body>
 </html>
