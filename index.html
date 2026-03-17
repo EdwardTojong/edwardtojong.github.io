@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edward Tojong | Sales Coach & Fractional Sales Executive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fafafa;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+        
+        /* Two-column layout */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        /* Left column - main content */
+        .left-col {
+            min-width: 0;
+        }
+        
+        /* Right column - sidebar */
+        .right-col {
+            position: sticky;
+            top: 2rem;
+            align-self: start;
+        }
+        
+        header {
+            margin-bottom: 2rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #2c3e50, #6b21a5, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subhead {
+            font-size: 1.2rem;
+            color: #4b5563;
+            border-left: 4px solid #6b21a5;
+            padding-left: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #2c3e50;
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: linear-gradient(to right, rgba(37, 99, 235, 0.05), rgba(107, 33, 165, 0.05));
+            border-radius: 8px;
+            border-left: 4px solid #2563eb;
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin: 2.5rem 0 1.5rem 0;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid linear-gradient(to right, #2563eb, #6b21a5);
+            background: linear-gradient(135deg, #2563eb, #6b21a5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Article cards */
+        .articles-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .article-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+            border-left: 4px solid #6b21a5;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 10px 15px -3px rgba(107, 33, 165, 0.1);
+        }
+        
+        .article-date {
+            font-size: 0.85rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, #2563eb, #6b21a5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .article-excerpt {
+            color: #4b5563;
+            margin-bottom: 1rem;
+        }
+        
+        .read-more {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .read-more:hover {
+            text-decoration: underline;
+            color: #6b21a5;
+        }
+        
+        /* Social links */
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 500;
+            transition: all 0.1s ease;
+        }
+        
+        .social-link:hover {
+            background: #f3f4f6;
+            border-color: #6b21a5;
+            transform: translateY(-2px);
+        }
+        
+        /* Profile card */
+        .profile-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 1px solid #e5e7eb;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: block;
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px #2563eb, 0 0 0 4px #6b21a5;
+            object-fit: cover;
+        }
+        
+        .profile-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #2563eb, #6b21a5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .profile-title {
+            text-align: center;
+            color: #4b5563;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .bullet-points {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .bullet-points li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            font-size: 0.95rem;
+        }
+        
+        .bullet-points li:last-child {
+            border-bottom: none;
+        }
+        
+        .bullet-icon {
+            color: #6b21a5;
+            font-weight: bold;
+            min-width: 20px;
+        }
+        
+        .highlight {
+            font-weight: 600;
+            background: linear-gradient(135deg, #2563eb, #6b21a5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+            font-size: 0.9rem;
+            color: #6b7280;
+            text-align: center;
+            clear: both;
+        }
+    </style>
+    <!-- Font Awesome for additional icons if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Edward Tojong</h1>
+            <div class="subhead">
+                Sales Coach || Business Development || Fractional Sales Executive
+            </div>
+            <div class="quote">
+                "If there's a deal to be made, it's all about who - Who are the right people to get it done?"
+            </div>
+        </header>
+        
+        <!-- Social links -->
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/edwardtojong/" class="social-link" target="_blank" rel="noopener">
+                <i class="fab fa-linkedin" style="color: #0077b5; font-size: 1.2rem;"></i>
+                LinkedIn
+            </a>
+            
+            <a href="https://www.instagram.com/edwardthejong" class="social-link" target="_blank" rel="noopener">
+                <i class="fab fa-instagram" style="color: #e4405f; font-size: 1.2rem;"></i>
+                Instagram
+            </a>
+            
+            <a href="https://www.youtube.com/@2LostBoys" class="social-link" target="_blank" rel="noopener">
+                <i class="fab fa-youtube" style="color: #ff0000; font-size: 1.2rem;"></i>
+                YouTube
+            </a>
+        </div>
+        
+        <!-- Main content grid -->
+        <div class="main-grid">
+            <!-- Left column - Articles -->
+            <div class="left-col">
+                <h2 class="section-title">Latest articles</h2>
+                
+                <div class="articles-grid">
+                    <!-- Article 1 - Updated title -->
+                    <div class="article-card">
+                        <div class="article-date">Coming soon</div>
+                        <div class="article-title">Cold calling? Does it still work today?</div>
+                        <div class="article-excerpt">
+                            The death of cold calling has been greatly exaggerated. Here's what actually works in 2026...
+                        </div>
+                        <a href="#" class="read-more">Read →</a>
+                    </div>
+                    
+                    <!-- Article 2 -->
+                    <div class="article-card">
+                        <div class="article-date">Coming soon</div>
+                        <div class="article-title">Why I Ask "Why" After Every "No"</div>
+                        <div class="article-excerpt">
+                            The one question that turned cold calls into closed deals...
+                        </div>
+                        <a href="#" class="read-more">Read →</a>
+                    </div>
+                    
+                    <!-- Article 3 -->
+                    <div class="article-card">
+                        <div class="article-date">Coming soon</div>
+                        <div class="article-title">Building a Team That Closes 300+ Clients</div>
+                        <div class="article-excerpt">
+                            Systems, psychology, and sales rhythms that scale...
+                        </div>
+                        <a href="#" class="read-more">Read →</a>
+                    </div>
+                </div>
+                
+                <!-- Brief intro box -->
+                <div style="margin: 3rem 0 2rem 0; padding: 1.5rem; background: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(107,33,165,0.05)); border-radius: 8px; border-left: 4px solid #6b21a5;">
+                    <p style="font-size: 1.1rem;">
+                        <strong>📍 Currently:</strong> Writing about sales strategy, team-building, and the BDR-to-leader journey. Drop your email below if you want early access when articles launch.
+                    </p>
+                    
+                    <!-- Simple email placeholder -->
+                    <div style="display: flex; gap: 0.5rem; margin-top: 1rem; max-width: 400px;">
+                        <input type="email" placeholder="your.email@example.com" style="flex: 1; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px;" disabled>
+                        <button style="padding: 0.5rem 1rem; background: linear-gradient(135deg, #2563eb, #6b21a5); color: white; border: none; border-radius: 4px; opacity: 0.7;">Notify me</button>
+                    </div>
+                    <p style="font-size: 0.8rem; color: #4b5563; margin-top: 0.5rem;">(Form disabled—replace with actual form later)</p>
+                </div>
+            </div>
+            
+            <!-- Right column - Profile sidebar -->
+            <div class="right-col">
+                <div class="profile-card">
+                    <!-- Profile image - you'll need to upload this -->
+                    <img src="profile.jpg" alt="Edward Tojong" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none; text-align: center; padding: 2rem; background: #f3f4f6; border-radius: 50%; width: 150px; height: 150px; margin: 0 auto 1.5rem; align-items: center; justify-content: center;">
+                        <span style="font-size: 3rem;">📸</span>
+                    </div>
+                    
+                    <div class="profile-name">Edward Tojong</div>
+                    <div class="profile-title">
+                        Sales Coach • Business Development<br>
+                        Fractional Sales Executive
+                    </div>
+                    
+                    <ul class="bullet-points">
+                        <li>
+                            <span class="bullet-icon">→</span>
+                            <span><span class="highlight">Doubled my asking salary</span> in the last 5 years because... <em>(article coming soon)</em></span>
+                        </li>
+                        <li>
+                            <span class="bullet-icon">✈️</span>
+                            <span><span class="highlight">12 countries</span> in the last 24 months (Yes, of course I love to travel)</span>
+                        </li>
+                        <li>
+                            <span class="bullet-icon">🎥</span>
+                            <span>Still on the fence about being a <span class="highlight">vlogger or travel-writer</span></span>
+                        </li>
+                        <li>
+                            <span class="bullet-icon">⛰️</span>
+                            <span>Hiked the <span class="highlight">tallest mountain in South Korea</span> (2026)</span>
+                        </li>
+                        <li>
+                            <span class="bullet-icon">🏆</span>
+                            <span>Part of the team of <span class="highlight">top global reseller of a VoIP</span> (2023)</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Quick contact -->
+                <div style="background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid #e5e7eb; border-left: 4px solid #2563eb;">
+                    <h3 style="margin-bottom: 1rem; font-size: 1.1rem; color: #2563eb;">Let's connect</h3>
+                    <p style="color: #4b5563; margin-bottom: 1rem; font-size: 0.9rem;">Open to coaching, fractional roles, and speaking.</p>
+                    <a href="#" style="display: block; text-align: center; padding: 0.75rem; background: linear-gradient(135deg, #2563eb, #6b21a5); color: white; text-decoration: none; border-radius: 8px; font-weight: 500;">Reach out</a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            © 2026 Edward Tojong • Built for GitHub Pages
+        </footer>
+    </div>
+</body>
+</html>
