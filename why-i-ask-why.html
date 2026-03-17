@@ -8,10 +8,10 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
             color: #1a1a1a;
-            background: #fafafa;
+            background: #0a0c0f;
             position: relative;
             min-height: 100vh;
         }
@@ -24,46 +24,49 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            pointer-events: none; /* So clicks go through to content */
-            opacity: 0.15; /* Subtle but visible */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            pointer-events: none;
+            opacity: 0.25;
+            background: #0f1217;
         }
         
         /* The silhouette container */
         .silhouette {
             position: relative;
             width: 100%;
-            max-width: 800px;
             height: 100vh;
             margin: 0 auto;
         }
         
-        /* Individual "No!" words positioned to form the silhouette */
+        /* Individual "No!" words positioned to form a stressed salesman's face */
         .no-word {
             position: absolute;
-            font-size: clamp(0.7rem, 2vw, 1.2rem);
-            font-weight: 700;
+            font-size: clamp(0.7rem, 1.8vw, 1.1rem);
+            font-weight: 800;
             white-space: nowrap;
-            color: #6b21a5;
+            color: #ff4444;
             text-transform: uppercase;
             letter-spacing: 1px;
             transform: rotate(var(--rot, 0deg));
-            animation: subtleFloat 8s infinite ease-in-out;
+            animation: stressPulse 4s infinite ease-in-out;
             animation-delay: var(--delay, 0s);
+            text-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+            font-family: 'Courier New', monospace;
+            z-index: var(--z, 1);
         }
         
-        @keyframes subtleFloat {
-            0%, 100% { transform: rotate(var(--rot, 0deg)) translateY(0); }
-            50% { transform: rotate(var(--rot, 0deg)) translateY(-3px); }
+        @keyframes stressPulse {
+            0%, 100% { 
+                transform: rotate(var(--rot, 0deg)) scale(1); 
+                opacity: var(--base-opacity, 0.7);
+                color: #ff4444;
+            }
+            50% { 
+                transform: rotate(var(--rot, 0deg)) scale(1.1); 
+                opacity: 1;
+                color: #ff6b6b;
+                text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+            }
         }
-        
-        /* Different colors for visual interest */
-        .no-word:nth-child(3n+1) { color: #2563eb; opacity: 0.8; }
-        .no-word:nth-child(3n+2) { color: #6b21a5; opacity: 0.8; }
-        .no-word:nth-child(3n+3) { color: #b91c1c; opacity: 0.7; }
         
         /* Main content - sits above background */
         .content-wrapper {
@@ -80,147 +83,179 @@
             max-width: 700px;
             margin: 0 auto;
             padding: 2.5rem;
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(3px);
+            background: rgba(18, 22, 28, 0.92);
+            backdrop-filter: blur(10px);
             border-radius: 24px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 68, 68, 0.2);
         }
         
         h1 {
             font-size: 2.4rem;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #2563eb, #6b21a5, #b91c1c);
+            background: linear-gradient(135deg, #ff4444, #ff8c8c, #ff4444);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            font-weight: 800;
         }
         
         .date {
-            color: #6b7280;
+            color: #9ca3af;
             margin-bottom: 2rem;
             font-style: italic;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            border-bottom: 1px solid rgba(255, 68, 68, 0.2);
+            padding-bottom: 1rem;
         }
         
         .date i {
-            color: #b91c1c;
+            color: #ff4444;
         }
         
         .content p {
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
-            color: #1f2937;
+            color: #e5e7eb;
         }
         
         .content p:first-of-type:first-letter {
-            font-size: 3rem;
+            font-size: 3.5rem;
             float: left;
-            padding-right: 0.5rem;
-            line-height: 1;
-            color: #b91c1c;
-            font-weight: 700;
+            padding-right: 0.75rem;
+            line-height: 0.8;
+            color: #ff4444;
+            font-weight: 900;
+            font-family: 'Times New Roman', serif;
         }
         
         blockquote {
             margin: 2rem 0;
-            padding: 1.5rem;
-            background: rgba(37, 99, 235, 0.05);
-            border-left: 4px solid #b91c1c;
+            padding: 1.5rem 2rem;
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 6px solid #ff4444;
             font-style: italic;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             border-radius: 0 12px 12px 0;
+            color: #ff8c8c;
+            font-weight: 500;
+            box-shadow: 0 10px 20px -10px rgba(255, 68, 68, 0.3);
         }
         
         .back-link {
             margin-top: 3rem;
-            padding-top: 1rem;
-            border-top: 1px solid #e5e7eb;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 68, 68, 0.2);
             display: flex;
             gap: 1rem;
             align-items: center;
         }
         
         .back-link a {
-            color: #2563eb;
+            color: #ff8c8c;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             font-weight: 500;
-            transition: gap 0.2s;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
         }
         
         .back-link a:hover {
             gap: 0.75rem;
-            color: #6b21a5;
+            color: #ff4444;
+            text-shadow: 0 0 8px rgba(255, 68, 68, 0.5);
         }
         
         .share-buttons {
             margin-left: auto;
             display: flex;
-            gap: 0.75rem;
+            gap: 1rem;
         }
         
         .share-buttons a {
-            color: #9ca3af;
-            transition: color 0.2s;
+            color: #4b5563;
+            transition: all 0.2s;
+            font-size: 1.2rem;
         }
         
         .share-buttons a:hover {
-            color: #2563eb;
+            color: #ff4444;
+            transform: scale(1.1);
+        }
+        
+        /* Noise overlay for grit */
+        .noise {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-radial-gradient(circle at 30% 40%, rgba(255,68,68,0.03) 0px, transparent 2px);
+            pointer-events: none;
+            z-index: 5;
+            opacity: 0.3;
         }
         
         @media (max-width: 640px) {
             .container { padding: 1.5rem; }
             h1 { font-size: 1.8rem; }
-            .no-word { font-size: 0.6rem; }
         }
     </style>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Background silhouette made of "No!" in multiple languages -->
     <div class="background-silhouette">
         <div class="silhouette" id="silhouetteContainer"></div>
     </div>
+    
+    <!-- Subtle noise overlay -->
+    <div class="noise"></div>
 
     <!-- Main content -->
     <div class="content-wrapper">
         <div class="container">
-            <h1>Why I Ask "Why" After Every "No"</h1>
+            <h1>WHY I ASK "WHY"<br>AFTER EVERY "NO"</h1>
             <div class="date">
                 <i class="fas fa-calendar-alt"></i> March 18, 2026 
                 <i class="fas fa-clock" style="margin-left: 1rem;"></i> 3 min read
+                <i class="fas fa-phone-alt" style="margin-left: 1rem; color: #ff4444;"></i>
             </div>
             
             <div class="content">
                 <p>Here's the thing about cold calls – everyone's waiting for the "no."</p>
                 
-                <p>You hear it five times before lunch and suddenly you're numb to it. But I learned something early: <strong>the "no" isn't the end. It's the middle.</strong></p>
+                <p>You hear it five times before lunch and suddenly you're numb to it. But I learned something early: <span style="color: #ff4444; font-weight: 700;">the "no" isn't the end. It's the middle.</span></p>
                 
                 <p>Most reps hear "not interested" and move to the next name on the list. I don't. I pause. And then I ask:</p>
                 
                 <blockquote>
-                    <strong>"Why?"</strong>
+                    "Why?"
                 </blockquote>
                 
                 <p>Not aggressive. Not pushy. Just... curious.</p>
                 
                 <p>Sometimes I'll soften it: "What do you mean by that?" Same question. Different wrapper.</p>
                 
-                <p>Here's what happens next: <strong>that awkward pause.</strong></p>
+                <p>Here's what happens next: <span style="color: #ff4444; font-weight: 700;">that awkward pause.</span></p>
                 
                 <p>The one where they weren't expecting a follow-up. The one where the script in their head says I should hang up, but I didn't. And in that silence – that two-second gap – they start filling it.</p>
                 
-                <p><em>"Why? Well, I mean... we're already working with someone. But actually, come to think of it, we've been having some issues with..."</em></p>
+                <p style="font-style: italic; color: #ff8c8c; padding-left: 1rem; border-left: 2px solid #ff4444;">"Why? Well, I mean... we're already working with someone. But actually, come to think of it, we've been having some issues with..."</p>
                 
                 <p>There it is.</p>
                 
-                <p>The objection almost never matters. "Not interested." "Too expensive." "Send me an email." All noise. What matters is that moment they <strong>re-engage</strong> because you broke the rhythm.</p>
+                <p>The objection almost never matters. "Not interested." "Too expensive." "Send me an email." All noise. What matters is that moment they <span style="color: #ff4444; font-weight: 700;">re-engage</span> because you broke the rhythm.</p>
                 
                 <p>You made it a real conversation instead of a transaction.</p>
                 
@@ -228,14 +263,14 @@
                 
                 <p>Try it tomorrow. Next time someone says no, wait one beat. Then ask why.</p>
                 
-                <p>That silence is uncomfortable for three seconds. But it's paid my bills for ten years.</p>
+                <p style="font-size: 1.3rem; font-weight: 600; color: #ff4444; text-align: center; margin-top: 2rem;">That silence is uncomfortable for three seconds.<br>But it's paid my bills for ten years.</p>
             </div>
             
             <div class="back-link">
-                <a href="/"><i class="fas fa-arrow-left"></i> Back to home</a>
+                <a href="/"><i class="fas fa-arrow-left"></i> Back to the phones</a>
                 <div class="share-buttons">
-                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://edwardtojong.github.io/why-i-ask-why.html" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://twitter.com/intent/tweet?text=Why%20I%20Ask%20%22Why%22%20After%20Every%20%22No%22%20by%20Edward%20Tojong&url=https://edwardtojong.github.io/why-i-ask-why.html" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://edwardtojong.github.io/why-i-ask-why.html" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-x-twitter"></i></a>
                 </div>
             </div>
         </div>
@@ -249,89 +284,161 @@
             // "No!" in 8 languages
             const noWords = [
                 "NO!",          // English
-                "NON!",          // French
-                "¡NO!",          // Spanish
-                "НЕТ!",          // Russian
-                "不!",           // Chinese
-                "لا!",           // Arabic
-                "いいえ!",        // Japanese
-                "아니요!"         // Korean
+                "NON!",         // French
+                "¡NO!",         // Spanish
+                "НЕТ!",         // Russian
+                "不!",          // Chinese
+                "لا!",          // Arabic
+                "いいえ!",       // Japanese
+                "아니요!"        // Korean
             ];
             
-            // Create 150 words positioned to form a stressed salesman silhouette
-            for (let i = 0; i < 150; i++) {
+            // Clear container
+            container.innerHTML = '';
+            
+            // Create 250 words to form a detailed stressed salesman's face
+            for (let i = 0; i < 250; i++) {
                 const word = document.createElement('div');
                 word.className = 'no-word';
                 
                 // Pick random language
                 word.textContent = noWords[Math.floor(Math.random() * noWords.length)];
                 
-                // Position to form silhouette of stressed salesman at desk
-                // These coordinates create the shape
+                // Position to form silhouette of stressed salesman
                 let x, y;
+                let isFaceArea = false;
                 
-                if (i < 100) { // Main head and body area
-                    // Head (circle-like shape)
-                    if (i < 40) {
-                        // Head area - elliptical shape
-                        const angle = (i / 40) * Math.PI * 2;
-                        x = 50 + 15 * Math.cos(angle);
-                        y = 25 + 10 * Math.sin(angle);
-                    } 
-                    // Shoulders and stressed posture
-                    else if (i < 70) {
-                        // Hunched shoulders
-                        x = 45 + (i - 40) * 0.5;
-                        y = 38 + (i - 40) * 0.1;
+                // HEAD SHAPE - Top of head (crown)
+                if (i < 40) {
+                    // Top of head - arched shape
+                    const progress = i / 40;
+                    x = 35 + (progress * 30); // 35% to 65% width
+                    y = 10 + Math.sin(progress * Math.PI) * 5; // 10-15% height
+                    isFaceArea = true;
+                }
+                // FOREHEAD AREA
+                else if (i < 80) {
+                    const progress = (i - 40) / 40;
+                    x = 38 + (progress * 24); // 38% to 62%
+                    y = 15 + Math.random() * 5; // 15-20% height
+                    isFaceArea = true;
+                }
+                // EYEBROWS - Furrowed, stressed
+                else if (i < 100) {
+                    const side = Math.random() > 0.5 ? 'left' : 'right';
+                    if (side === 'left') {
+                        x = 42 + Math.random() * 6; // Left eyebrow 42-48%
+                    } else {
+                        x = 52 + Math.random() * 6; // Right eyebrow 52-58%
                     }
-                    // Desk and hands (stressed position - head in hands)
-                    else {
-                        // Forehead/hands area - more密集
-                        x = 48 + Math.random() * 14;
-                        y = 30 + Math.random() * 10;
+                    y = 22 + Math.random() * 3; // 22-25% height
+                    word.style.setProperty('--base-opacity', '0.9');
+                    word.style.fontWeight = '900';
+                    word.style.fontSize = '1.2rem';
+                    isFaceArea = true;
+                }
+                // EYES - Stressed, maybe bags under eyes
+                else if (i < 130) {
+                    const side = Math.random() > 0.5 ? 'left' : 'right';
+                    if (side === 'left') {
+                        x = 44 + Math.random() * 4; // Left eye 44-48%
+                    } else {
+                        x = 52 + Math.random() * 4; // Right eye 52-56%
                     }
-                } else {
-                    // Random scattered "No!" around the silhouette for ambiance
+                    y = 28 + Math.random() * 4; // 28-32% height
+                    word.style.setProperty('--base-opacity', '0.8');
+                    isFaceArea = true;
+                }
+                // NOSE AREA - Furrowed
+                else if (i < 150) {
+                    x = 48 + Math.random() * 4; // 48-52%
+                    y = 32 + Math.random() * 5; // 32-37% height
+                    word.style.setProperty('--base-opacity', '0.85');
+                    isFaceArea = true;
+                }
+                // MOUTH - Frown, stressed
+                else if (i < 170) {
+                    const progress = (i - 150) / 20;
+                    x = 42 + (progress * 16); // 42% to 58% (frown width)
+                    y = 40 + Math.sin(progress * Math.PI) * 3; // Downward curve
+                    word.style.setProperty('--base-opacity', '0.9');
+                    word.style.fontWeight = '800';
+                    isFaceArea = true;
+                }
+                // JAW/LOWER FACE
+                else if (i < 200) {
+                    const progress = (i - 170) / 30;
+                    x = 35 + (progress * 30); // 35% to 65%
+                    y = 45 + (progress * 10); // 45% to 55% (jaw drops slightly)
+                    isFaceArea = true;
+                }
+                // HANDS/NECK AREA (stressed posture - hands on face/desk)
+                else if (i < 230) {
+                    x = 45 + Math.random() * 10; // 45-55%
+                    y = 50 + Math.random() * 15; // 50-65% (neck/shoulders/hands)
+                    word.style.setProperty('--base-opacity', '0.7');
+                    isFaceArea = true;
+                }
+                // BACKGROUND SCATTER - surrounding "NO!" for ambiance
+                else {
                     x = Math.random() * 100;
                     y = Math.random() * 100;
+                    word.style.setProperty('--base-opacity', '0.3');
+                    word.style.fontSize = '0.6rem';
                 }
                 
-                // Add variation to make it look like a stressed expression
-                if (i > 40 && i < 55) {
-                    // Furrowed brow area - more intense
+                // Add stress lines (forehead creases, tension areas)
+                if (isFaceArea && Math.random() > 0.7) {
                     word.style.fontWeight = '900';
-                    word.style.opacity = '0.9';
-                }
-                if (i > 70 && i < 85) {
-                    // Mouth area - frown shape
-                    y = 42 + (i - 70) * 0.2;
-                    x = 45 + (i - 70) * 0.8;
+                    word.style.setProperty('--base-opacity', '1');
                 }
                 
                 word.style.left = x + '%';
                 word.style.top = y + '%';
                 
-                // Random rotation for dynamic feel
-                const rot = (Math.random() - 0.5) * 15;
+                // Random rotation - more variation in face area
+                const rot = isFaceArea ? (Math.random() - 0.5) * 25 : (Math.random() - 0.5) * 15;
                 word.style.setProperty('--rot', rot + 'deg');
                 
                 // Random animation delay
-                word.style.setProperty('--delay', (Math.random() * 5) + 's');
+                word.style.setProperty('--delay', (Math.random() * 3) + 's');
+                
+                // Z-index to make face pop
+                if (isFaceArea) {
+                    word.style.setProperty('--z', '2');
+                } else {
+                    word.style.setProperty('--z', '1');
+                }
                 
                 container.appendChild(word);
             }
             
-            // Add a few more in the "phone/hand" area to suggest he's on calls
-            for (let i = 0; i < 20; i++) {
-                const word = document.createElement('div');
-                word.className = 'no-word';
-                word.textContent = noWords[Math.floor(Math.random() * noWords.length)];
-                word.style.left = (65 + Math.random() * 15) + '%';
-                word.style.top = (45 + Math.random() * 15) + '%';
-                word.style.fontSize = '0.8rem';
-                word.style.opacity = '0.5';
-                container.appendChild(word);
-            }
+            // Add extra emphasis to stress points (forehead lines, eye bags)
+            const stressPoints = [
+                { x: 46, y: 24 }, // Left temple
+                { x: 54, y: 24 }, // Right temple
+                { x: 48, y: 34 }, // Between eyes
+                { x: 44, y: 32 }, // Under left eye
+                { x: 56, y: 32 }, // Under right eye
+                { x: 50, y: 42 }  // Mouth corner
+            ];
+            
+            stressPoints.forEach(point => {
+                for (let j = 0; j < 5; j++) {
+                    const word = document.createElement('div');
+                    word.className = 'no-word';
+                    word.textContent = noWords[Math.floor(Math.random() * noWords.length)];
+                    word.style.left = (point.x - 2 + Math.random() * 4) + '%';
+                    word.style.top = (point.y - 2 + Math.random() * 4) + '%';
+                    word.style.fontSize = '1.3rem';
+                    word.style.fontWeight = '900';
+                    word.style.setProperty('--base-opacity', '1');
+                    word.style.color = '#ff3333';
+                    word.style.setProperty('--rot', (Math.random() - 0.5) * 30 + 'deg');
+                    word.style.setProperty('--z', '3');
+                    container.appendChild(word);
+                }
+            });
         });
     </script>
 </body>
