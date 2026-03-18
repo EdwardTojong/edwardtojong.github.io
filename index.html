@@ -370,9 +370,97 @@
             object-fit: cover;
             border: 3px solid white;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.2s ease;
         }
         
-        /* Orientation indicators - removed text but keep icons */
+        .timeline-image:hover {
+            transform: scale(1.02);
+        }
+        
+        /* Individual photo adjustments */
+        .timeline-image[alt*="Real Estate Training"] {
+            object-fit: contain;
+            background-color: #f0f0f0;
+        }
+        
+        .timeline-image[alt*="galleon"] {
+            object-position: center 60%;
+        }
+        
+        .timeline-image[alt*="Victoria Peak - skyline"] {
+            object-position: center 45%;
+        }
+        
+        /* Modal styles for image popup */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        
+        .modal-content {
+            max-width: 40vw;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 12px;
+            border: 3px solid white;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .close-modal {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            font-family: 'Arial Black', sans-serif;
+            cursor: pointer;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            border: 3px solid white;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            z-index: 1001;
+        }
+        
+        .close-modal:hover {
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+        }
+        
+        .close-modal:active {
+            transform: translateX(-50%) scale(0.95);
+        }
+        
+        .close-modal span {
+            transform: rotate(45deg);
+            display: inline-block;
+        }
+        
+        .caption-modal {
+            color: white;
+            margin-top: 20px;
+            font-size: 1rem;
+            text-align: center;
+            max-width: 40vw;
+        }
+        
         .timeline-image[alt*="portrait"] {
             object-position: center 20%;
         }
@@ -455,6 +543,14 @@
             .timeline-image {
                 width: 200px;
                 height: 200px;
+            }
+            
+            .modal-content {
+                max-width: 80vw;
+            }
+            
+            .caption-modal {
+                max-width: 80vw;
             }
         }
         
@@ -608,7 +704,7 @@
                 <div class="timeline-item">
                     <div class="timeline-date">February 2026</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-1.jpg" alt="Hallasan National Park - couple selfie" class="timeline-image">
+                        <img src="timeline-pic-1.jpg" alt="Hallasan National Park - couple selfie" class="timeline-image" ondblclick="openModal(this)">
                         <div class="timeline-caption">
                             <p><strong>Summiting the Highest Peak in South Korea</strong>, a shield volcano and UNESCO Biosphere Reserve & World Heritage Site.</p>
                             <span class="orientation-badge"><i class="fas fa-arrows-alt-h"></i> 📸 Selfie</span>
@@ -624,7 +720,7 @@
                 <div class="timeline-item">
                     <div class="timeline-date">January 2026</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-2.jpg" alt="Cebu City - expo banner" class="timeline-image">
+                        <img src="timeline-pic-2.jpg" alt="Cebu City - expo banner" class="timeline-image" ondblclick="openModal(this)">
                         <div class="timeline-caption">
                             <p><strong>Celebrating 30 years of this excellent low-cost carrier this 2026.</strong> Pit Senyor!</p>
                             <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> 🎪 Expo</span>
@@ -640,7 +736,7 @@
                 <div class="timeline-item">
                     <div class="timeline-date">December 2025</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-3.jpg" alt="Nagasaki - night view" class="timeline-image">
+                        <img src="timeline-pic-3.jpg" alt="Nagasaki - night view" class="timeline-image" ondblclick="openModal(this)">
                         <div class="timeline-caption">
                             <p><strong>Well worth the hike! Majestic Nagasaki</strong> – World's New Three Most Spectacular Night Views 2024.</p>
                             <span class="orientation-badge"><i class="fas fa-arrows-alt-h"></i> 🌃 Night view</span>
@@ -656,7 +752,7 @@
                 <div class="timeline-item">
                     <div class="timeline-date">September 2025</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-4.jpg" alt="Phra Nakhon Si Ayutthaya - tour group" class="timeline-image">
+                        <img src="timeline-pic-4.jpg" alt="Phra Nakhon Si Ayutthaya - tour group" class="timeline-image" ondblclick="openModal(this)">
                         <div class="timeline-caption">
                             <p><strong>Go team Nicky! Thanks for the memories ^_^</strong></p>
                             <span class="orientation-badge"><i class="fas fa-arrows-alt-h"></i> 👥 Group shot</span>
@@ -672,7 +768,7 @@
                 <div class="timeline-item">
                     <div class="timeline-date">February 2025</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-5.jpg" alt="Seongsan Ilchulbong - UNESCO marker" class="timeline-image">
+                        <img src="timeline-pic-5.jpg" alt="Seongsan Ilchulbong - UNESCO marker" class="timeline-image" ondblclick="openModal(this)">
                         <div class="timeline-caption">
                             <p><strong>The "mini-hike" before Mt. Halla</strong>, sunrise at a volcanic crater and a UNESCO World Heritage Site.</p>
                             <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> 🌅 Sunrise</span>
@@ -688,7 +784,7 @@
                 <div class="timeline-item">
                     <div class="timeline-date">January 2025</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-6.jpg" alt="Victoria Peak - skyline" class="timeline-image">
+                        <img src="timeline-pic-6.jpg" alt="Victoria Peak - skyline" class="timeline-image" ondblclick="openModal(this)">
                         <div class="timeline-caption">
                             <p><strong>A quick getaway: Pleasure before business</strong>, a rare crowdless & clear day at the Peak Galleria.</p>
                             <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> 🏙️ Skyline</span>
@@ -704,7 +800,7 @@
                 <div class="timeline-item">
                     <div class="timeline-date">October 2024</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-7.jpg" alt="Singapore Expo - selfie" class="timeline-image">
+                        <img src="timeline-pic-7.jpg" alt="Singapore Expo - selfie" class="timeline-image" ondblclick="openModal(this)">
                         <div class="timeline-caption">
                             <p><strong>Super quick selfie before starting the day</strong> at the FHA Expo 2024.</p>
                             <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> 📸 Selfie</span>
@@ -720,7 +816,7 @@
                 <div class="timeline-item">
                     <div class="timeline-date">June 2024</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-8.jpg" alt="Phan Xi Păng - mountain trail" class="timeline-image">
+                        <img src="timeline-pic-8.jpg" alt="Phan Xi Păng - mountain trail" class="timeline-image" ondblclick="openModal(this)">
                         <div class="timeline-caption">
                             <p><strong>This might be where it all began – the "Roof of Indochina"</strong> is where we started chasing highs & lows, and never really stopped.</p>
                             <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> ⛰️ Mountain trail</span>
@@ -736,7 +832,7 @@
                 <div class="timeline-item">
                     <div class="timeline-date">December 2023</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-9.jpg" alt="National Museum of Natural History - galleon" class="timeline-image">
+                        <img src="timeline-pic-9.jpg" alt="National Museum of Natural History - galleon" class="timeline-image" ondblclick="openModal(this)">
                         <div class="timeline-caption">
                             <p><strong>National Museum of Natural History – M.A.D. Expo 1887, Nuestros Filipinos Civilizados.</strong></p>
                             <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> 🏛️ Museum</span>
@@ -752,7 +848,7 @@
                 <div class="timeline-item">
                     <div class="timeline-date">December 2022</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-10.jpg" alt="Christmas Party 2022 - managers party" class="timeline-image">
+                        <img src="timeline-pic-10.jpg" alt="Christmas Party 2022 - managers party" class="timeline-image" ondblclick="openModal(this)">
                         <div class="timeline-caption">
                             <p><strong>Christmas Party 2022: A Global Top Reseller Team.</strong></p>
                             <span class="orientation-badge"><i class="fas fa-arrows-alt-h"></i> 🎄 Christmas party</span>
@@ -768,7 +864,7 @@
                 <div class="timeline-item">
                     <div class="timeline-date">January 2022</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-11.jpg" alt="Real Estate Training - sales training" class="timeline-image">
+                        <img src="timeline-pic-11.jpg" alt="Real Estate Training - sales training" class="timeline-image" ondblclick="openModal(this)">
                         <div class="timeline-caption">
                             <p><strong>Hustlin' hustlin'! B.E.S.T. Sales Training by Filinvest Land Inc., the real estate agent days.</strong></p>
                             <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> 💼 Sales training</span>
@@ -787,7 +883,16 @@
         </footer>
     </div>
 
-    <!-- IMAGE PROTECTION SCRIPT -->
+    <!-- Modal for image popup -->
+    <div id="imageModal" class="modal">
+        <img class="modal-content" id="modalImage">
+        <div class="caption-modal" id="modalCaption"></div>
+        <div class="close-modal" onclick="closeModal()">
+            <span>✕</span>
+        </div>
+    </div>
+
+    <!-- IMAGE PROTECTION SCRIPT + MODAL SCRIPT -->
     <script>
         // Disable right-click on images only
         document.addEventListener('contextmenu', function(event) {
@@ -818,6 +923,43 @@
             }
         `;
         document.head.appendChild(style);
+        
+        // Modal functions for double-click image popup
+        function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalCaption = document.getElementById('modalCaption');
+            
+            modal.style.display = 'flex';
+            modalImg.src = img.src;
+            
+            // Find the caption text from the parent timeline item
+            const timelineItem = img.closest('.timeline-item');
+            const captionText = timelineItem.querySelector('.timeline-caption p').innerText;
+            const locationText = timelineItem.querySelector('.timeline-location span').innerText;
+            const dateText = timelineItem.querySelector('.timeline-date').innerText;
+            
+            modalCaption.innerHTML = `<strong>${dateText}</strong> — ${captionText}<br>📍 ${locationText}`;
+        }
+        
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        };
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
