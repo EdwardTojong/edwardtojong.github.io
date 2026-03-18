@@ -268,6 +268,122 @@
             border-bottom: 1px solid #2563eb;
         }
         
+        /* Timeline Styles */
+        .timeline-section {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e5e7eb;
+        }
+        
+        .timeline-title {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #2563eb, #6b21a5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+        }
+        
+        .timeline-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 120px 1fr 120px;
+            gap: 1.5rem;
+            align-items: center;
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e5e7eb;
+            transition: transform 0.2s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1);
+            border-left: 4px solid #6b21a5;
+        }
+        
+        .timeline-date {
+            font-weight: 700;
+            color: #2563eb;
+            text-align: right;
+            font-size: 1.1rem;
+            border-right: 2px solid #6b21a5;
+            padding-right: 1rem;
+        }
+        
+        .timeline-content {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .timeline-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-caption {
+            flex: 1;
+        }
+        
+        .timeline-caption p {
+            color: #4b5563;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .timeline-location {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #6b21a5;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+        
+        .timeline-location i {
+            color: #2563eb;
+            font-size: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-item {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .timeline-date {
+                text-align: left;
+                border-right: none;
+                border-bottom: 2px solid #6b21a5;
+                padding-bottom: 0.5rem;
+            }
+            
+            .timeline-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .timeline-location {
+                justify-content: center;
+            }
+        }
+        
         footer {
             margin-top: 4rem;
             padding-top: 2rem;
@@ -408,6 +524,157 @@
                     <h3 style="margin-bottom: 1rem; font-size: 1.1rem; color: #2563eb;">Let's connect</h3>
                     <p style="color: #4b5563; margin-bottom: 1rem; font-size: 0.9rem;">Open to coaching, fractional roles, and speaking.</p>
                     <a href="#" style="display: block; text-align: center; padding: 0.75rem; background: linear-gradient(135deg, #2563eb, #6b21a5); color: white; text-decoration: none; border-radius: 8px; font-weight: 500;">Reach out</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- TIMELINE SECTION - Added here, before footer -->
+        <div class="timeline-section">
+            <h2 class="timeline-title">🗺️ Travel Timeline</h2>
+            
+            <div class="timeline-grid">
+                <!-- Timeline Item 1 - February 2026 (Latest) -->
+                <div class="timeline-item">
+                    <div class="timeline-date">February 2026</div>
+                    <div class="timeline-content">
+                        <img src="timeline-pic-1.jpg" alt="Hallasan National Park" class="timeline-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; width: 120px; height: 120px; background: #f3f4f6; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #9ca3af;">📸</div>
+                        <div class="timeline-caption">
+                            <p><strong>Summiting the Highest Peak in South Korea</strong>, a shield volcano and UNESCO Biosphere Reserve & World Heritage Site. My partner and I at the crater, posing for a selfie.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-location">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Hallasan National Park, Jeju Island, South Korea</span>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 - January 2026 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2026</div>
+                    <div class="timeline-content">
+                        <img src="timeline-pic-2.jpg" alt="Cebu City" class="timeline-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; width: 120px; height: 120px; background: #f3f4f6; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #9ca3af;">📸</div>
+                        <div class="timeline-caption">
+                            <p><strong>Celebrating 30 years of this excellent low-cost carrier this 2026.</strong> Pit Senyor! At an expo holding a banner by the airline against their logo during a festival.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-location">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Cebu City, Cebu, Philippines</span>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 - December 2025 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">December 2025</div>
+                    <div class="timeline-content">
+                        <img src="timeline-pic-3.jpg" alt="Nagasaki" class="timeline-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; width: 120px; height: 120px; background: #f3f4f6; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #9ca3af;">📸</div>
+                        <div class="timeline-caption">
+                            <p><strong>Well worth the hike! Majestic Nagasaki</strong> – World's New Three Most Spectacular Night Views 2024. My partner & I photographed against the night skyline from Mt Inayama observatory.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-location">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Nagasaki, Kyushu, Japan</span>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 4 - September 2025 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">September 2025</div>
+                    <div class="timeline-content">
+                        <img src="timeline-pic-4.jpg" alt="Phra Nakhon Si Ayutthaya" class="timeline-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; width: 120px; height: 120px; background: #f3f4f6; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #9ca3af;">📸</div>
+                        <div class="timeline-caption">
+                            <p><strong>Go team Nicky! Thanks for the memories ^_^</strong> Tour group at a UNESCO World Heritage site.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-location">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Phra Nakhon Si Ayutthaya, Thailand</span>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 5 - February 2025 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">February 2025</div>
+                    <div class="timeline-content">
+                        <img src="timeline-pic-5.jpg" alt="Seongsan Ilchulbong" class="timeline-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; width: 120px; height: 120px; background: #f3f4f6; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #9ca3af;">📸</div>
+                        <div class="timeline-caption">
+                            <p><strong>The "mini-hike" before Mt. Halla</strong>, sunrise at a volcanic crater and a UNESCO World Heritage Site. Us posing at the UNESCO marker against a sunrise.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-location">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Seongsan Ilchulbong, Seogwipo, Jeju, South Korea</span>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 6 - January 2025 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2025</div>
+                    <div class="timeline-content">
+                        <img src="timeline-pic-6.jpg" alt="Victoria Peak" class="timeline-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; width: 120px; height: 120px; background: #f3f4f6; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #9ca3af;">📸</div>
+                        <div class="timeline-caption">
+                            <p><strong>A quick getaway: Pleasure before business</strong>, a rare crowdless & clear day at the Peak Galleria. Posing against the HK skyline.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-location">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Victoria Peak, Central, Hong Kong SAR</span>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 7 - October 2024 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">October 2024</div>
+                    <div class="timeline-content">
+                        <img src="timeline-pic-7.jpg" alt="Singapore Expo" class="timeline-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; width: 120px; height: 120px; background: #f3f4f6; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #9ca3af;">📸</div>
+                        <div class="timeline-caption">
+                            <p><strong>Super quick selfie before starting the day</strong> at the FHA Expo 2024.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-location">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Singapore Expo, Tampines, Singapore</span>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 8 - June 2024 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">June 2024</div>
+                    <div class="timeline-content">
+                        <img src="timeline-pic-8.jpg" alt="Phan Xi Păng" class="timeline-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; width: 120px; height: 120px; background: #f3f4f6; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #9ca3af;">📸</div>
+                        <div class="timeline-caption">
+                            <p><strong>This might be where it all began – the "Roof of Indochina"</strong> is where we started chasing highs & lows, and never really stopped. Walking down in Fansipan.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-location">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Phan Xi Păng, Sa Pa, Lào Cai, Vietnam</span>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 9 - December 2023 (Oldest) -->
+                <div class="timeline-item">
+                    <div class="timeline-date">December 2023</div>
+                    <div class="timeline-content">
+                        <img src="timeline-pic-9.jpg" alt="National Museum of Natural History" class="timeline-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; width: 120px; height: 120px; background: #f3f4f6; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #9ca3af;">📸</div>
+                        <div class="timeline-caption">
+                            <p><strong>National Museum of Natural History – M.A.D. Expo 1887, Nuestros Filipinos Civilizados.</strong> Looking at a galleon replica.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-location">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Ermita, Manila, Metro Manila</span>
+                    </div>
                 </div>
             </div>
         </div>
