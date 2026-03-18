@@ -294,7 +294,7 @@
         
         .timeline-item {
             display: grid;
-            grid-template-columns: 120px 1fr 120px;
+            grid-template-columns: 120px 1fr 200px;
             gap: 1.5rem;
             align-items: center;
             background: white;
@@ -303,12 +303,45 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             border: 1px solid #e5e7eb;
             transition: transform 0.2s ease;
+            position: relative;
+            overflow: hidden;
         }
         
         .timeline-item:hover {
             transform: translateX(5px);
             box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1);
             border-left: 4px solid #6b21a5;
+        }
+        
+        /* Faint map background */
+        .timeline-item::before {
+            content: "🗺️";
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            font-size: 3rem;
+            opacity: 0.1;
+            pointer-events: none;
+            transform: rotate(-10deg);
+            z-index: 0;
+        }
+        
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(37, 99, 235, 0.02) 0px,
+                rgba(37, 99, 235, 0.02) 10px,
+                rgba(107, 33, 165, 0.02) 10px,
+                rgba(107, 33, 165, 0.02) 20px
+            );
+            pointer-events: none;
+            z-index: 0;
         }
         
         .timeline-date {
@@ -318,12 +351,16 @@
             font-size: 1.1rem;
             border-right: 2px solid #6b21a5;
             padding-right: 1rem;
+            position: relative;
+            z-index: 1;
         }
         
         .timeline-content {
             display: flex;
             gap: 1.5rem;
             align-items: center;
+            position: relative;
+            z-index: 1;
         }
         
         .timeline-image {
@@ -348,17 +385,28 @@
         
         .timeline-location {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 0.5rem;
             color: #6b21a5;
             font-weight: 600;
             font-size: 0.95rem;
-            white-space: nowrap;
+            position: relative;
+            z-index: 1;
+            max-width: 100%;
         }
         
         .timeline-location i {
             color: #2563eb;
             font-size: 1rem;
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+        
+        .timeline-location span {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            line-height: 1.4;
         }
         
         @media (max-width: 768px) {
@@ -381,6 +429,7 @@
             
             .timeline-location {
                 justify-content: center;
+                text-align: center;
             }
         }
         
@@ -661,7 +710,7 @@
                     </div>
                 </div>
 
-                <!-- Timeline Item 9 - December 2023 (Oldest) -->
+                <!-- Timeline Item 9 - December 2023 -->
                 <div class="timeline-item">
                     <div class="timeline-date">December 2023</div>
                     <div class="timeline-content">
@@ -674,6 +723,38 @@
                     <div class="timeline-location">
                         <i class="fas fa-map-pin"></i>
                         <span>Ermita, Manila, Metro Manila</span>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 10 - December 2022 -->
+                <div class="timeline-item">
+                    <div class="timeline-date">December 2022</div>
+                    <div class="timeline-content">
+                        <img src="timeline-pic-10.jpg" alt="Christmas Party 2022" class="timeline-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; width: 120px; height: 120px; background: #f3f4f6; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #9ca3af;">📸</div>
+                        <div class="timeline-caption">
+                            <p><strong>Christmas Party 2022: A Global Top Reseller Team.</strong> Us managers at the party.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-location">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Cebu City, Cebu, Philippines</span>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 11 - January 2022 (New - Oldest) -->
+                <div class="timeline-item">
+                    <div class="timeline-date">January 2022</div>
+                    <div class="timeline-content">
+                        <img src="timeline-pic-11.jpg" alt="Real Estate Training" class="timeline-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div style="display: none; width: 120px; height: 120px; background: #f3f4f6; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: #9ca3af;">📸</div>
+                        <div class="timeline-caption">
+                            <p><strong>Real Estate agent days. Hustle! B.E.S.T. Training by Filinvest Land Inc.</strong></p>
+                        </div>
+                    </div>
+                    <div class="timeline-location">
+                        <i class="fas fa-map-pin"></i>
+                        <span>Filinvest Land Inc., Philippines</span>
                     </div>
                 </div>
             </div>
