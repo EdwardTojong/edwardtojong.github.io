@@ -364,21 +364,17 @@
         }
         
         .timeline-image {
-            width: 156px;  /* Increased by 30% from 120px */
-            height: 156px; /* Increased by 30% from 120px */
+            width: 156px;
+            height: 156px;
             border-radius: 12px;
             object-fit: cover;
             border: 3px solid white;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
         
-        /* Orientation indicators */
+        /* Orientation indicators - removed text but keep icons */
         .timeline-image[alt*="portrait"] {
             object-position: center 20%;
-        }
-        
-        .timeline-content::after {
-            display: none; /* Remove gray squares */
         }
         
         .timeline-caption {
@@ -392,7 +388,7 @@
             margin: 0;
         }
         
-        /* Playful orientation badges */
+        /* Playful orientation badges - removed "Portrait" and "Landscape" text */
         .orientation-badge {
             display: inline-block;
             font-size: 0.7rem;
@@ -562,10 +558,7 @@
             <div class="right-col">
                 <div class="profile-card">
                     <!-- Profile image - using your photo-1-1.jpeg -->
-                    <img src="photo-1-1.jpeg" alt="Edward Tojong" class="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                    <div style="display: none; text-align: center; padding: 2rem; background: #f3f4f6; border-radius: 50%; width: 150px; height: 150px; margin: 0 auto 1.5rem; align-items: center; justify-content: center;">
-                        <span style="font-size: 3rem;">📸</span>
-                    </div>
+                    <img src="photo-1-1.jpeg" alt="Edward Tojong" class="profile-image">
                     
                     <div class="profile-name">Edward Tojong</div>
                     <div class="profile-title">
@@ -606,7 +599,7 @@
             </div>
         </div>
 
-        <!-- TIMELINE SECTION - Updated name -->
+        <!-- TIMELINE SECTION -->
         <div class="timeline-section">
             <h2 class="timeline-title">✨ Highlights Timeline</h2>
             
@@ -615,10 +608,10 @@
                 <div class="timeline-item">
                     <div class="timeline-date">February 2026</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-1.jpg" alt="Hallasan National Park - landscape - couple selfie" class="timeline-image">
+                        <img src="timeline-pic-1.jpg" alt="Hallasan National Park - couple selfie" class="timeline-image">
                         <div class="timeline-caption">
                             <p><strong>Summiting the Highest Peak in South Korea</strong>, a shield volcano and UNESCO Biosphere Reserve & World Heritage Site.</p>
-                            <span class="orientation-badge"><i class="fas fa-arrows-alt-h"></i> Landscape · 📸 Selfie</span>
+                            <span class="orientation-badge"><i class="fas fa-arrows-alt-h"></i> 📸 Selfie</span>
                         </div>
                     </div>
                     <div class="timeline-location">
@@ -631,10 +624,10 @@
                 <div class="timeline-item">
                     <div class="timeline-date">January 2026</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-2.jpg" alt="Cebu City - portrait - expo banner" class="timeline-image">
+                        <img src="timeline-pic-2.jpg" alt="Cebu City - expo banner" class="timeline-image">
                         <div class="timeline-caption">
                             <p><strong>Celebrating 30 years of this excellent low-cost carrier this 2026.</strong> Pit Senyor!</p>
-                            <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> Portrait · 🎪 Expo</span>
+                            <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> 🎪 Expo</span>
                         </div>
                     </div>
                     <div class="timeline-location">
@@ -647,10 +640,10 @@
                 <div class="timeline-item">
                     <div class="timeline-date">December 2025</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-3.jpg" alt="Nagasaki - landscape - night view" class="timeline-image">
+                        <img src="timeline-pic-3.jpg" alt="Nagasaki - night view" class="timeline-image">
                         <div class="timeline-caption">
                             <p><strong>Well worth the hike! Majestic Nagasaki</strong> – World's New Three Most Spectacular Night Views 2024.</p>
-                            <span class="orientation-badge"><i class="fas fa-arrows-alt-h"></i> Landscape · 🌃 Night view</span>
+                            <span class="orientation-badge"><i class="fas fa-arrows-alt-h"></i> 🌃 Night view</span>
                         </div>
                     </div>
                     <div class="timeline-location">
@@ -663,10 +656,10 @@
                 <div class="timeline-item">
                     <div class="timeline-date">September 2025</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-4.jpg" alt="Phra Nakhon Si Ayutthaya - landscape - tour group" class="timeline-image">
+                        <img src="timeline-pic-4.jpg" alt="Phra Nakhon Si Ayutthaya - tour group" class="timeline-image">
                         <div class="timeline-caption">
                             <p><strong>Go team Nicky! Thanks for the memories ^_^</strong></p>
-                            <span class="orientation-badge"><i class="fas fa-arrows-alt-h"></i> Landscape · 👥 Group shot</span>
+                            <span class="orientation-badge"><i class="fas fa-arrows-alt-h"></i> 👥 Group shot</span>
                         </div>
                     </div>
                     <div class="timeline-location">
@@ -679,10 +672,10 @@
                 <div class="timeline-item">
                     <div class="timeline-date">February 2025</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-5.jpg" alt="Seongsan Ilchulbong - portrait - UNESCO marker" class="timeline-image">
+                        <img src="timeline-pic-5.jpg" alt="Seongsan Ilchulbong - UNESCO marker" class="timeline-image">
                         <div class="timeline-caption">
                             <p><strong>The "mini-hike" before Mt. Halla</strong>, sunrise at a volcanic crater and a UNESCO World Heritage Site.</p>
-                            <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> Portrait · 🌅 Sunrise</span>
+                            <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> 🌅 Sunrise</span>
                         </div>
                     </div>
                     <div class="timeline-location">
@@ -695,10 +688,10 @@
                 <div class="timeline-item">
                     <div class="timeline-date">January 2025</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-6.jpg" alt="Victoria Peak - portrait - skyline" class="timeline-image">
+                        <img src="timeline-pic-6.jpg" alt="Victoria Peak - skyline" class="timeline-image">
                         <div class="timeline-caption">
                             <p><strong>A quick getaway: Pleasure before business</strong>, a rare crowdless & clear day at the Peak Galleria.</p>
-                            <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> Portrait · 🏙️ Skyline</span>
+                            <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> 🏙️ Skyline</span>
                         </div>
                     </div>
                     <div class="timeline-location">
@@ -711,10 +704,10 @@
                 <div class="timeline-item">
                     <div class="timeline-date">October 2024</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-7.jpg" alt="Singapore Expo - portrait - selfie" class="timeline-image">
+                        <img src="timeline-pic-7.jpg" alt="Singapore Expo - selfie" class="timeline-image">
                         <div class="timeline-caption">
                             <p><strong>Super quick selfie before starting the day</strong> at the FHA Expo 2024.</p>
-                            <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> Portrait · 📸 Selfie</span>
+                            <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> 📸 Selfie</span>
                         </div>
                     </div>
                     <div class="timeline-location">
@@ -727,10 +720,10 @@
                 <div class="timeline-item">
                     <div class="timeline-date">June 2024</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-8.jpg" alt="Phan Xi Păng - portrait - mountain trail" class="timeline-image">
+                        <img src="timeline-pic-8.jpg" alt="Phan Xi Păng - mountain trail" class="timeline-image">
                         <div class="timeline-caption">
                             <p><strong>This might be where it all began – the "Roof of Indochina"</strong> is where we started chasing highs & lows, and never really stopped.</p>
-                            <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> Portrait · ⛰️ Mountain trail</span>
+                            <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> ⛰️ Mountain trail</span>
                         </div>
                     </div>
                     <div class="timeline-location">
@@ -743,10 +736,10 @@
                 <div class="timeline-item">
                     <div class="timeline-date">December 2023</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-9.jpg" alt="National Museum of Natural History - portrait - galleon" class="timeline-image">
+                        <img src="timeline-pic-9.jpg" alt="National Museum of Natural History - galleon" class="timeline-image">
                         <div class="timeline-caption">
                             <p><strong>National Museum of Natural History – M.A.D. Expo 1887, Nuestros Filipinos Civilizados.</strong></p>
-                            <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> Portrait · 🏛️ Museum</span>
+                            <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> 🏛️ Museum</span>
                         </div>
                     </div>
                     <div class="timeline-location">
@@ -759,10 +752,10 @@
                 <div class="timeline-item">
                     <div class="timeline-date">December 2022</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-10.jpg" alt="Christmas Party 2022 - landscape - managers party" class="timeline-image">
+                        <img src="timeline-pic-10.jpg" alt="Christmas Party 2022 - managers party" class="timeline-image">
                         <div class="timeline-caption">
                             <p><strong>Christmas Party 2022: A Global Top Reseller Team.</strong></p>
-                            <span class="orientation-badge"><i class="fas fa-arrows-alt-h"></i> Landscape · 🎄 Christmas party</span>
+                            <span class="orientation-badge"><i class="fas fa-arrows-alt-h"></i> 🎄 Christmas party</span>
                         </div>
                     </div>
                     <div class="timeline-location">
@@ -775,10 +768,10 @@
                 <div class="timeline-item">
                     <div class="timeline-date">January 2022</div>
                     <div class="timeline-content">
-                        <img src="timeline-pic-11.jpg" alt="Real Estate Training - portrait - sales training" class="timeline-image">
+                        <img src="timeline-pic-11.jpg" alt="Real Estate Training - sales training" class="timeline-image">
                         <div class="timeline-caption">
                             <p><strong>Hustlin' hustlin'! B.E.S.T. Sales Training by Filinvest Land Inc., the real estate agent days.</strong></p>
-                            <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> Portrait · 💼 Sales training</span>
+                            <span class="orientation-badge"><i class="fas fa-arrows-alt-v"></i> 💼 Sales training</span>
                         </div>
                     </div>
                     <div class="timeline-location">
@@ -793,5 +786,38 @@
             © 2026 Edward Tojong • Built for GitHub Pages
         </footer>
     </div>
+
+    <!-- IMAGE PROTECTION SCRIPT -->
+    <script>
+        // Disable right-click on images only
+        document.addEventListener('contextmenu', function(event) {
+            if (event.target.tagName === 'IMG') {
+                event.preventDefault();
+                return false;
+            }
+        });
+        
+        // Disable drag-and-drop on images
+        document.addEventListener('dragstart', function(event) {
+            if (event.target.tagName === 'IMG') {
+                event.preventDefault();
+                return false;
+            }
+        });
+
+        // Add CSS protection
+        const style = document.createElement('style');
+        style.textContent = `
+            img {
+                user-select: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                -webkit-touch-callout: none;
+                pointer-events: auto;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
